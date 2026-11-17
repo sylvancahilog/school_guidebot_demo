@@ -1,0 +1,30 @@
+name: school_guidebot_demo
+description: "A school document assistant app using semantic search and on-device LLM."
+publish_to: 'none'
+
+version: 1.0.0+1
+
+environment:
+  sdk: ^3.13.7
+
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.8
+  flutter_edge_ai: ^2.6.0
+  flutter_edge_ai_litertlm: ^1.20.0
+  flutter_markdown: ^0.7.0
+  path_provider: ^2.1.0
+  http: ^1.2.0
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^6.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/handbook.md
+    - assets/policy.md
