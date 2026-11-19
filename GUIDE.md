@@ -88,7 +88,9 @@ flutter pub get
 
 ---
 
-## Step 2: Set the Android Minimum SDK
+## Step 2: Android Configuration
+
+### 2.1. Set the minimum SDK
 
 Open `android/app/build.gradle.kts` and set `minSdk` to `24`:
 
@@ -101,6 +103,19 @@ android {
 ```
 
 This is required because the LiteRT inference library targets Android 7 and above.
+
+### 2.2. Add the internet permission
+
+Open `android/app/src/main/AndroidManifest.xml` and add the `INTERNET` permission inside `<manifest>`, before `<application>`:
+
+```xml
+<manifest xmlns:android="http://schemas.android.com/apk/res/android">
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <application
+        ...
+```
+
+Without this permission Android silently blocks all outbound network connections, causing a `Failed host lookup` error when the app tries to download the model from Hugging Face.
 
 ---
 
